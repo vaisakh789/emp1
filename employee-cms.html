@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Portal - HRMS</title>
+    <!-- Chosen Palette: Earthy Neutral -->
+    <!-- Application Structure Plan: Dedicated page for employees to access content from the Content Management System (CMS). This includes KSR rules, government circulars, and departmental news updated by the Super Admin. Justification: Centralized access to official documents and news for all employees. -->
+    <!-- Visualization & Content Choices: Sections for different content categories (KSR, Circulars, News). Lists of documents/articles with conceptual links. Search/filter for content. Justification: Organizes and presents information clearly for easy access. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f7f4; color: #3d4f60; }
+        .card { background-color: #ffffff; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s; }
+        .nav-link:hover { background-color: #e0f2f1; }
+        .nav-link.active { background-color: #d1e7e4; font-weight: 600; color: #3e6e65; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Employee HRMS</h1>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="employee-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="employee-profile.html" class="nav-link">My Profile</a></li>
+                    <li><a href="employee-training.html" class="nav-link">My Training</a></li>
+                    <li><a href="employee-it-assets.html" class="nav-link">My IT Assets</a></li>
+                    <li><a href="employee-cms.html" class="nav-link active">CMS Portal</a></li>
+                    <li><a href="employee-grievance.html" class="nav-link">Grievance</a></li>
+                </ul>
+                <div class="relative group">
+                    <button class="nav-link bg-teal-600 text-white hover:bg-teal-700 flex items-center">
+                        Switch Role <span class="ml-2">▼</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                        <a href="employee-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Employee Role</a>
+                        <a href="section-head-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Section Head Role</a>
+                    </div>
+                </div>
+                <a href="employee-login.html" class="nav-link text-red-600 hover:bg-red-50">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">CMS Portal: Departmental Information & Resources</h2>
+        <p class="text-gray-600 mb-8">Access important documents, KSR rules, latest government circulars, and departmental news updated by the Super Admin.</p>
+
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">KSR Rules & Policies</h3>
+            <div class="card p-6">
+                <p class="text-gray-700 mb-4">Access the complete Kerala Service Rules (KSR) and other key departmental policies. Use the search bar to find specific rules or sections.</p>
+                <div class="mb-4">
+                    <input type="text" placeholder="Search KSR Rules..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li><a href="#" class="text-blue-600 hover:underline">Kerala Service Rules - Part I (Updated 2023)</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Kerala Service Rules - Part II (Updated 2023)</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Departmental Conduct Rules - 2020</a></li>
+                </ul>
+                <button class="mt-6 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">View All KSR & Policies</button>
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">Latest Government Circulars</h3>
+            <div class="card p-6">
+                <p class="text-gray-700 mb-4">Stay informed about the latest circulars and directives issued by the Government of Kerala relevant to the department.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li><a href="#" class="text-blue-600 hover:underline">Circular No. 123/2024/Fin - Regarding Budget Allocations</a> <span class="text-sm text-gray-500">(28-06-2024)</span></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Circular No. 122/2024/GAD - On Digital Record Keeping</a> <span class="text-sm text-gray-500">(25-06-2024)</span></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Circular No. 121/2024/HR - Revised Promotion Guidelines</a> <span class="text-sm text-gray-500">(20-06-2024)</span></li>
+                </ul>
+                <button class="mt-6 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">View All Circulars</button>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">Departmental News & Announcements</h3>
+            <div class="card p-6">
+                <p class="text-gray-700 mb-4">Catch up on the latest news, events, and announcements within the Irrigation Department.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li><a href="#" class="text-blue-600 hover:underline">Successful Completion of Project X in Alappuzha District</a> <span class="text-sm text-gray-500">(01-07-2024)</span></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Inter-Departmental Sports Meet Announced</a> <span class="text-sm text-gray-500">(29-06-2024)</span></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">New Initiative for Water Conservation Launched</a> <span class="text-sm text-gray-500">(26-06-2024)</span></li>
+                </ul>
+                <button class="mt-6 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">View All News</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

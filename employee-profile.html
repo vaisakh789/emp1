@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - HRMS</title>
+    <!-- Chosen Palette: Earthy Neutral -->
+    <!-- Application Structure Plan: Dedicated page for an employee's personal, qualification, and service details. Core details are fetched from SPARK. Other details can be added by the Office Head after validation. Provides a password reset option. Justification: Centralized hub for personal HR information with clear data origin. -->
+    <!-- Visualization & Content Choices: Clear headings, structured lists for details. Buttons for editing personal details (conceptual) and uploading qualifications/skills. Password reset form. Justification: Presents comprehensive personal data clearly and offers self-service security. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f7f4; color: #3d4f60; }
+        .card { background-color: #ffffff; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s; }
+        .nav-link:hover { background-color: #e0f2f1; }
+        .nav-link.active { background-color: #d1e7e4; font-weight: 600; color: #3e6e65; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Employee HRMS</h1>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="employee-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="employee-profile.html" class="nav-link active">My Profile</a></li>
+                    <li><a href="employee-training.html" class="nav-link">My Training</a></li>
+                    <li><a href="employee-it-assets.html" class="nav-link">My IT Assets</a></li>
+                    <li><a href="employee-cms.html" class="nav-link">CMS Portal</a></li>
+                    <li><a href="employee-grievance.html" class="nav-link">Grievance</a></li>
+                </ul>
+                <div class="relative group">
+                    <button class="nav-link bg-teal-600 text-white hover:bg-teal-700 flex items-center">
+                        Switch Role <span class="ml-2">▼</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                        <a href="employee-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Employee Role</a>
+                        <a href="section-head-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Section Head Role</a>
+                    </div>
+                </div>
+                <a href="employee-login.html" class="nav-link text-red-600 hover:bg-red-50">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">My Profile</h2>
+        <p class="text-gray-600 mb-8">View and manage your personal, qualification, and service details. Core details are fetched from SPARK, while other information can be added by your Office Head after validation.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Personal Details -->
+            <div class="card p-6">
+                <h3 class="font-semibold text-xl mb-4 text-teal-700">Personal Details</h3>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <p class="font-medium">Full Name:</p>
+                        <p>Anjali Nair</p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Employee ID (PEN):</p>
+                        <p>123456789 <span class="text-xs text-gray-500">(Fetched from SPARK)</span></p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Designation:</p>
+                        <p>Junior Engineer <span class="text-xs text-gray-500">(Fetched from SPARK)</span></p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Office:</p>
+                        <p>CE Project I <span class="text-xs text-gray-500">(Fetched from SPARK)</span></p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Assigned Seat:</p>
+                        <p>JE-04</p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Email:</p>
+                        <p>anjali.n@kerala.gov.in</p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Phone Number:</p>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Date of Birth:</p>
+                        <p>15-05-1992 <span class="text-xs text-gray-500">(Fetched from SPARK)</span></p>
+                    </div>
+                    <div>
+                        <p class="font-medium">Address:</p>
+                        <p>Flat 4B, Green Apartments, Kochi, Kerala</p>
+                    </div>
+                </div>
+                <button class="mt-6 bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Edit Personal Details (Request Update)</button>
+            </div>
+
+            <!-- Qualifications & Service History -->
+            <div class="space-y-8">
+                <div class="card p-6">
+                    <h3 class="font-semibold text-xl mb-4 text-teal-700">Qualifications</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>B.Tech in Civil Engineering (2014) - College of Engineering, Trivandrum</li>
+                        <li>M.Tech in Water Resources Management (2016) - IIT Madras</li>
+                    </ul>
+                    <button class="mt-4 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">Upload New Qualification (For Office Head Validation)</button>
+                </div>
+
+                <div class="card p-6">
+                    <h3 class="font-semibold text-xl mb-4 text-teal-700">Service History</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Junior Engineer, CE Project I (Joined: 10-03-2020)</li>
+                        <li>Assistant Engineer (Promoted: 01-07-2023)</li>
+                    </ul>
+                </div>
+
+                <div class="card p-6">
+                    <h3 class="font-semibold text-xl mb-4 text-teal-700">Certificates & Skills</h3>
+                    <p class="text-gray-700 mb-4">Manage your professional certifications and skill tags. Skills can be added by Office Head after validation.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                        <li>Project Management Professional (PMP) - Validated</li>
+                        <li>AutoCAD Proficiency Certificate - Pending Validation</li>
+                        <li>Skill Tags: AutoCAD, Project Management, Flood Control, Data Analysis</li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button class="bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Upload New Certificate (For Office Head Validation)</button>
+                        <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">Request Skill Update (For Office Head Validation)</button>
+                    </div>
+                </div>
+
+                <div class="card p-6">
+                    <h3 class="font-semibold text-xl mb-4 text-teal-700">Password Management</h3>
+                    <p class="text-gray-700 mb-4">Change your password to ensure account security.</p>
+                    <form>
+                        <div class="mb-4">
+                            <label for="currentPassword" class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                            <input type="password" id="currentPassword" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                            <input type="password" id="newPassword" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
+                        </div>
+                        <button type="submit" class="bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Redressal - HRMS</title>
+    <!-- Chosen Palette: Earthy Neutral -->
+    <!-- Application Structure Plan: Dedicated page for employees to file and track grievances. Provides a form for new submissions and a history of past grievances with their status. Justification: Offers a clear and confidential channel for employee concerns. -->
+    <!-- Visualization & Content Choices: Form for new grievances with text inputs, dropdowns, and file upload. Table for grievance history with status indicators. Buttons for submission. Justification: Standard form and table layout for data entry and tracking. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f7f4; color: #3d4f60; }
+        .card { background-color: #ffffff; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s; }
+        .nav-link:hover { background-color: #e0f2f1; }
+        .nav-link.active { background-color: #d1e7e4; font-weight: 600; color: #3e6e65; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Employee HRMS</h1>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="employee-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="employee-profile.html" class="nav-link">My Profile</a></li>
+                    <li><a href="employee-training.html" class="nav-link">My Training</a></li>
+                    <li><a href="employee-it-assets.html" class="nav-link">My IT Assets</a></li>
+                    <li><a href="employee-cms.html" class="nav-link">CMS Portal</a></li>
+                    <li><a href="employee-grievance.html" class="nav-link active">Grievance</a></li>
+                </ul>
+                <div class="relative group">
+                    <button class="nav-link bg-teal-600 text-white hover:bg-teal-700 flex items-center">
+                        Switch Role <span class="ml-2">▼</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                        <a href="employee-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Employee Role</a>
+                        <a href="section-head-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Section Head Role</a>
+                    </div>
+                </div>
+                <a href="employee-login.html" class="nav-link text-red-600 hover:bg-red-50">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Grievance Redressal</h2>
+        <p class="text-gray-600 mb-8">File a new grievance or track the status of your existing complaints.</p>
+
+        <!-- File New Grievance -->
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">File New Grievance</h3>
+            <div class="card p-6">
+                <form>
+                    <div class="mb-4">
+                        <label for="grievanceSubject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="grievanceSubject" name="grievanceSubject" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="e.g., Promotion Delay, Workplace Issue" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="grievanceType" class="block text-sm font-medium text-gray-700 mb-1">Grievance Type</label>
+                        <select id="grievanceType" name="grievanceType" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md shadow-sm" required>
+                            <option value="">Select Type</option>
+                            <option value="HR">HR Related</option>
+                            <option value="IT">IT Related</option>
+                            <option value="Workplace">Workplace Environment</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="grievanceDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea id="grievanceDescription" name="grievanceDescription" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="Provide a detailed description of your grievance..." required></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="attachment" class="block text-sm font-medium text-gray-700 mb-1">Attachment (Optional)</label>
+                        <input type="file" id="attachment" name="attachment" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                    </div>
+                    <button type="submit" class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                        Submit Grievance
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- My Grievance History -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">My Grievance History</h3>
+            <div class="card p-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left text-gray-700">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Grievance ID</th>
+                                <th class="py-2 px-4 border-b">Subject</th>
+                                <th class="py-2 px-4 border-b">Type</th>
+                                <th class="py-2 px-4 border-b">Date Filed</th>
+                                <th class="py-2 px-4 border-b">Status</th>
+                                <th class="py-2 px-4 border-b">Resolution/Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">GRV001</td>
+                                <td class="py-2 px-4">Issue with leave approval</td>
+                                <td class="py-2 px-4">HR Related</td>
+                                <td class="py-2 px-4">05-06-2024</td>
+                                <td class="py-2 px-4"><span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Open</span></td>
+                                <td class="py-2 px-4">Under review by HR Department.</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">GRV0005</td>
+                                <td class="py-2 px-4">Uncomfortable chair</td>
+                                <td class="py-2 px-4">Workplace Environment</td>
+                                <td class="py-2 px-4">20-05-2024</td>
+                                <td class="py-2 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Resolved</span></td>
+                                <td class="py-2 px-4">New ergonomic chair provided.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

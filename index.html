@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - HRMS</title>
+    <!-- Chosen Palette: Earthy Neutral -->
+    <!-- Application Structure Plan: This is the primary dashboard for all employees. It provides a quick overview, a notification panel for news, quick links to all modules (Training, IT Assets, CMS, Grievance), and a prominent "Switch Role" option for dual-role users. Justification: Centralized, user-friendly entry point for all employee services. -->
+    <!-- Visualization & Content Choices: Summary cards for key personal metrics. Notification panel for departmental news. Quick action cards with icons for module navigation. Justification: Provides at-a-glance information and direct access to all functionalities. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f7f4; color: #3d4f60; }
+        .card { background-color: #ffffff; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s; }
+        .nav-link:hover { background-color: #e0f2f1; }
+        .nav-link.active { background-color: #d1e7e4; font-weight: 600; color: #3e6e65; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Employee HRMS</h1>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="employee-dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="employee-profile.html" class="nav-link">My Profile</a></li>
+                    <li><a href="employee-training.html" class="nav-link">My Training</a></li>
+                    <li><a href="employee-it-assets.html" class="nav-link">My IT Assets</a></li>
+                    <li><a href="employee-cms.html" class="nav-link">CMS Portal</a></li>
+                    <li><a href="employee-grievance.html" class="nav-link">Grievance</a></li>
+                </ul>
+                <div class="relative group">
+                    <button class="nav-link bg-teal-600 text-white hover:bg-teal-700 flex items-center">
+                        Switch Role <span class="ml-2">▼</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                        <a href="employee-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Employee Role</a>
+                        <a href="section-head-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Section Head Role</a>
+                        <!-- In a real application, other assigned roles would appear here dynamically -->
+                    </div>
+                </div>
+                <a href="employee-login.html" class="nav-link text-red-600 hover:bg-red-50">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Welcome, Anjali Nair!</h2>
+        <p class="text-gray-600 mb-8">Here's a quick overview of your HRMS status and quick access to key functions.</p>
+
+        <!-- Password Reset Prompt (Conceptual - would appear on first login or after admin reset) -->
+        <div class="card p-6 mb-10 border-l-4 border-orange-500">
+            <h3 class="text-2xl font-semibold mb-3 text-orange-700">Action Required: Reset Your Password!</h3>
+            <p class="text-gray-700 mb-4">For enhanced security, please reset your temporary password immediately. You can do this in your <a href="employee-profile.html" class="text-blue-600 hover:underline">My Profile</a> section.</p>
+        </div>
+
+        <!-- Role Switcher Card (visible if user has assigned admin roles) -->
+        <div class="card p-6 mb-10 border-l-4 border-teal-500">
+            <h3 class="text-2xl font-semibold mb-3 text-teal-700">You have an assigned role!</h3>
+            <p class="text-gray-700 mb-4">You are currently viewing your **Employee** dashboard. As a **Section Head**, you can switch to your administrative dashboard to manage your team and section-specific tasks.</p>
+            <a href="section-head-dashboard.html" class="inline-block bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 transition-colors">
+                Go to Section Head Dashboard
+            </a>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">My PEN</p>
+                <p class="text-3xl font-bold text-gray-800">123456789</p>
+            </div>
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Courses Completed</p>
+                <p class="text-3xl font-bold text-green-600">2 / 5</p>
+            </div>
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Open IT Complaints</p>
+                <p class="text-3xl font-bold text-red-600">1</p>
+            </div>
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Pending Approvals</p>
+                <p class="text-3xl font-bold text-orange-600">0</p>
+            </div>
+        </div>
+
+        <!-- Notification Panel -->
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">Notifications & Departmental News</h3>
+            <div class="card p-6">
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-xl mr-3">📢</span>
+                        <div>
+                            <p class="font-medium text-gray-800">New Circular: Revised Leave Policy effective July 15, 2024. <a href="employee-cms.html" class="text-blue-600 hover:underline">Read more</a></p>
+                            <p class="text-sm text-gray-500">Updated by Super Admin - 1 hour ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-xl mr-3">📚</span>
+                        <div>
+                            <p class="font-medium text-gray-800">New Course Available: "Cybersecurity Fundamentals" in LMS. Enroll now!</p>
+                            <p class="text-sm text-gray-500">Training Admin - 3 hours ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-xl mr-3">✅</span>
+                        <div>
+                            <p class="font-medium text-gray-800">Training Application for "Advanced AutoCAD" has been Approved!</p>
+                            <p class="text-sm text-gray-500">Your request is approved - Yesterday</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-xl mr-3">⚠️</span>
+                        <div>
+                            <p class="font-medium text-gray-800">IT Complaint (PC7834) status updated to "In Progress".</p>
+                            <p class="text-sm text-gray-500">IT Team - 2 days ago</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Access to Modules -->
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">Quick Access to HRMS Modules</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="employee-profile.html" class="card p-6 text-center hover:bg-gray-50 transition-colors flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">👤</span>
+                    <p class="font-semibold text-lg">My Profile</p>
+                    <p class="text-gray-500 text-sm">View & update personal details</p>
+                </a>
+                <a href="employee-training.html" class="card p-6 text-center hover:bg-gray-50 transition-colors flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">📚</span>
+                    <p class="font-semibold text-lg">My Training</p>
+                    <p class="text-gray-500 text-sm">Schedules, applications & certificates</p>
+                </a>
+                <a href="employee-it-assets.html" class="card p-6 text-center hover:bg-gray-50 transition-colors flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">💻</span>
+                    <p class="font-semibold text-lg">My IT Assets</p>
+                    <p class="text-gray-500 text-sm">View assets, register complaints</p>
+                </a>
+                <a href="employee-cms.html" class="card p-6 text-center hover:bg-gray-50 transition-colors flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">📰</span>
+                    <p class="font-semibold text-lg">CMS Portal</p>
+                    <p class="text-gray-500 text-sm">Read KSR rules, circulars & news</p>
+                </a>
+                <a href="employee-grievance.html" class="card p-6 text-center hover:bg-gray-50 transition-colors flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">💬</span>
+                    <p class="font-semibold text-lg">Grievance Redressal</p>
+                    <p class="text-gray-500 text-sm">File & track your concerns</p>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

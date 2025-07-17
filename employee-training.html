@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Training - HRMS</title>
+    <!-- Chosen Palette: Earthy Neutral -->
+    <!-- Application Structure Plan: Dedicated page for an employee's training activities. Shows published training schedules (online/offline), allows application for sessions, tracks application approval status, and provides a direct link to the LMS portal for course access and certificate download. Justification: Centralized access to all training-related information and actions for the employee. -->
+    <!-- Visualization & Content Choices: Summary cards for training metrics. Tables for training schedules and request history. Buttons for applying for training and accessing the LMS. Justification: Provides clear overview and actionable items for training participation. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f7f4; color: #3d4f60; }
+        .card { background-color: #ffffff; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s; }
+        .nav-link:hover { background-color: #e0f2f1; }
+        .nav-link.active { background-color: #d1e7e4; font-weight: 600; color: #3e6e65; }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Employee HRMS</h1>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="employee-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="employee-profile.html" class="nav-link">My Profile</a></li>
+                    <li><a href="employee-training.html" class="nav-link active">My Training</a></li>
+                    <li><a href="employee-it-assets.html" class="nav-link">My IT Assets</a></li>
+                    <li><a href="employee-cms.html" class="nav-link">CMS Portal</a></li>
+                    <li><a href="employee-grievance.html" class="nav-link">Grievance</a></li>
+                </ul>
+                <div class="relative group">
+                    <button class="nav-link bg-teal-600 text-white hover:bg-teal-700 flex items-center">
+                        Switch Role <span class="ml-2">▼</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
+                        <a href="employee-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Employee Role</a>
+                        <a href="section-head-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Section Head Role</a>
+                    </div>
+                </div>
+                <a href="employee-login.html" class="nav-link text-red-600 hover:bg-red-50">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">My Training & Capacity Building</h2>
+        <p class="text-gray-600 mb-8">Access training schedules, apply for sessions, track your application status, and view your certificates. Access the LMS portal for online courses.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Courses Assigned</p>
+                <p class="text-3xl font-bold text-gray-800">5</p>
+            </div>
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Courses Completed</p>
+                <p class="text-3xl font-bold text-green-600">2</p>
+            </div>
+            <div class="card p-6 text-center">
+                <p class="text-sm text-gray-500">Pending Training Requests</p>
+                <p class="text-3xl font-bold text-orange-600">1</p>
+            </div>
+        </div>
+
+        <!-- Training Schedules & Application -->
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">Training Schedules & Application</h3>
+            <div class="card p-6">
+                <p class="text-gray-700 mb-4">View upcoming online and offline training sessions published by the Training Admin. Apply for sessions you wish to attend.</p>
+                <div class="overflow-x-auto mb-4">
+                    <table class="min-w-full text-sm text-left text-gray-700">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Program Name</th>
+                                <th class="py-2 px-4 border-b">Type</th>
+                                <th class="py-2 px-4 border-b">Start Date</th>
+                                <th class="py-2 px-4 border-b">End Date</th>
+                                <th class="py-2 px-4 border-b">Status</th>
+                                <th class="py-2 px-4 border-b">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">Advanced eOffice Training</td>
+                                <td class="py-2 px-4">Online (LMS)</td>
+                                <td class="py-2 px-4">01-07-2024</td>
+                                <td class="py-2 px-4">31-07-2024</td>
+                                <td class="py-2 px-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Ongoing</span></td>
+                                <td class="py-2 px-4">
+                                    <button class="text-teal-600 hover:underline text-xs">View Details</button>
+                                </td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">Cybersecurity Fundamentals</td>
+                                <td class="py-2 px-4">Online (LMS)</td>
+                                <td class="py-2 px-4">15-08-2024</td>
+                                <td class="py-2 px-4">30-08-2024</td>
+                                <td class="py-2 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Scheduled</span></td>
+                                <td class="py-2 px-4">
+                                    <button class="bg-teal-600 text-white py-1 px-3 rounded-lg text-xs hover:bg-teal-700">Apply Now</button>
+                                </td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">Flood Management Workshop</td>
+                                <td class="py-2 px-4">Offline</td>
+                                <td class="py-2 px-4">05-09-2024</td>
+                                <td class="py-2 px-4">07-09-2024</td>
+                                <td class="py-2 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Scheduled</span></td>
+                                <td class="py-2 px-4">
+                                    <button class="bg-teal-600 text-white py-1 px-3 rounded-lg text-xs hover:bg-teal-700">Apply Now</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">View All Schedules</button>
+            </div>
+        </div>
+
+        <!-- My Training Application Status -->
+        <div class="mb-10">
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">My Training Application Status</h3>
+            <div class="card p-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left text-gray-700">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-2 px-4 border-b">Training Name</th>
+                                <th class="py-2 px-4 border-b">Application Date</th>
+                                <th class="py-2 px-4 border-b">Status</th>
+                                <th class="py-2 px-4 border-b">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">Project Management Professional (PMP) Prep</td>
+                                <td class="py-2 px-4">10-06-2024</td>
+                                <td class="py-2 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Approved</span></td>
+                                <td class="py-2 px-4">Your application has been approved. Training starts 01-09-2024.</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 px-4">GIS for Water Management</td>
+                                <td class="py-2 px-4">05-06-2024</td>
+                                <td class="py-2 px-4"><span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Rejected</span></td>
+                                <td class="py-2 px-4">Not aligned with current role requirements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- LMS Portal Access & Certificates -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4 text-teal-700">LMS Portal & My Certificates</h3>
+            <div class="card p-6">
+                <p class="text-gray-700 mb-4">Access the Learning Management System (LMS) portal to complete online courses and download your approved training certificates.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="employee-lms-portal.html" class="bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-center">Access LMS Portal</a>
+                    <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">View My Certificates</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
